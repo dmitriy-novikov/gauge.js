@@ -1,0 +1,12 @@
+html, body{margin:0; padding:0;}
+body{font-family:Arial, Tahoma, Verdana; font-size:14px; color: black; background:white;}
+img{border:0;}
+:focus{outline:none;}
+.clear{clear:both;}
+
+h1{text-align:center;}
+.table{max-width: 1000px; margin:0 auto;}
+.celldemo{width:500px; float:left;}
+.celldemo div canvas{margin:0 auto; display:block;}
+.cellcode{float:left; max-width:500px;}
+pre{display:block; padding:10px; background:#eee; border:1px dotted #ccc;}
