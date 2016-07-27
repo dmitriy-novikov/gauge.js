@@ -17,6 +17,7 @@ function Gauge(config, element){
 		config.dotColor = config.dotColor || 'gray';
 		config.font = config.font || '12px Arial';
 		config.checkAreas = config.checkAreas || false;
+		config.arcWidth = config.arcWidth || 5;
 
 
 		//creating canvas inside selected element
@@ -36,7 +37,7 @@ function Gauge(config, element){
 
 		context.beginPath();                                              
 		context.arc(center_x, center_y, config.radius, (Math.PI/180)*(270-(config.aperture/2)), (Math.PI/180)*(270+(config.aperture/2)), false);
-		context.lineWidth = 5;                                           
+		context.lineWidth = config.arcWidth;                                           
 		context.strokeStyle = config.arcColor;                                    
 		context.stroke();
 
@@ -58,7 +59,7 @@ function Gauge(config, element){
 			if(area.start != undefined && area.end != undefined && area.color && area.start < area.end){
 				context.beginPath();                                              
 				context.arc(center_x, center_y, config.radius, (Math.PI/180)*(area.start+180), (Math.PI/180)*(area.end+180), false);
-				context.lineWidth = 6;                                           
+				context.lineWidth = config.arcWidth;                                           
 				context.strokeStyle = area.color;                                    
 				context.stroke();
 			} else {
@@ -87,13 +88,13 @@ function Gauge(config, element){
 			}
 			
 			if(config.scaleInside){
-				context.moveTo(0, -config.radius+5);
-				context.lineTo(0, -config.radius+15);
-				context.fillText(value, 0, -config.radius+22);
+				context.moveTo(0, -config.radius+config.arcWidth);
+				context.lineTo(0, -config.radius+config.arcWidth+10);
+				context.fillText(value, 0, -config.radius+config.arcWidth+17);
 			} else {
-				context.moveTo(0, -config.radius-5);
-				context.lineTo(0, -config.radius-15);
-				context.fillText(value, 0, -config.radius-20);
+				context.moveTo(0, -config.radius-config.arcWidth);
+				context.lineTo(0, -config.radius-config.arcWidth-10);
+				context.fillText(value, 0, -config.radius-config.arcWidth-17);
 			}
 			context.stroke();
 			
@@ -103,11 +104,11 @@ function Gauge(config, element){
 					context.strokeStyle = config.dotColor; 
 					context.rotate((Math.PI/180)*((2/(config.values.length-1)/10)*(config.aperture/2)));
 					if(config.scaleInside){
-						context.moveTo(0, -config.radius+6);
-						context.lineTo(0, -config.radius+7);
+						context.moveTo(0, -config.radius+config.arcWidth+1);
+						context.lineTo(0, -config.radius+config.arcWidth+2);
 					} else {
-						context.moveTo(0, -config.radius-6);
-						context.lineTo(0, -config.radius-7);
+						context.moveTo(0, -config.radius-config.arcWidth-1);
+						context.lineTo(0, -config.radius-config.arcWidth-2);
 					}
 					context.stroke();
 				}
