@@ -1,0 +1,27 @@
+{
+  "name": "gauge.js",
+  "description": "Canvas gauge component",
+  "version": "0.1",
+  "author": "Dmitriy Novikov <me@dmnv.ru>",
+  "keywords": [
+    "gauge",
+    "scale",
+	  "voltmeter",
+	  "ampermeter",
+	  "speedo"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmitriy-novikov/gauge.js"
+  },
+  "main": "./gauge.min.js",
+  "files": [
+    "gauge.js",
+    "README.md",
+    "package.json"
+  ],
+  "bugs": {
+    "url": "https://github.com/dmitriy-novikov/gauge.js/issues"
+  },
+  "homepage": "https://github.com/dmitriy-novikov/gauge.js"
+}
